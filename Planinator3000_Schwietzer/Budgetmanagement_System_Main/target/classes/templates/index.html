@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Start Head -->
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/7b4a142b3c.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css_test/loginstyle.css" th:href="@{/css_test/loginstyle.css}"/>
+
+  <title>Sign in</title>
+</head>
+<!-- Ende Head -->
+
+<body>
+  <!-- Login-Page -->
+  <div class="main">
+    <p class="sign" align="center"><img src="../static/images/icon.jpg" th:src="@{/images/icon.png}" height="" width="150" align="center"></p>
+    <form class="form1" action="#" th:action="@{/testUser}" th:object="${user}" method="POST">
+      <input class="un" type="text" align="center" placeholder="Username" th:field="*{username}">
+      <input class="pass" type="password" align="center" placeholder="Password" th:field="*{password}">
+      <button class="submit" align="center">Sign in</button>
+    </form>
+  </div>
+</body>
+
+</html>

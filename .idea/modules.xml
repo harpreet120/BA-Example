@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Planinator3000_Schwietzer_Loh_Nordmann_Schumm_Sevecke_Singh_Weinschenk.iml" filepath="$PROJECT_DIR$/.idea/Planinator3000_Schwietzer_Loh_Nordmann_Schumm_Sevecke_Singh_Weinschenk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Planinator3000_Schwietzer/Budgetmanagement_System_Main/budget.iml" filepath="$PROJECT_DIR$/Planinator3000_Schwietzer/Budgetmanagement_System_Main/budget.iml" />
+    </modules>
+  </component>
+</project>

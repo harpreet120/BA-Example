@@ -1,0 +1,137 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Start Head -->
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/7b4a142b3c.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css_test/style.css" th:href="@{/css_test/style.css}"/>
+
+    <title>Planinator 3000</title>
+</head>
+<!-- Ende Head -->
+
+<body>
+<!-- Start Header - Überall gleich -->
+<header>
+    <div class="container3">
+        <!-- Logo -->
+        <div class="head-logo">
+            <a href="#"> <img src="../static/images/icon.jpg" th:src="@{/images/icon.png}" height="100px" width="125px"></a>
+            <div class="head-name">
+                <p>Planinator 3000</p>
+            </div>
+        </div>
+        <!-- Username mit Abmelde-Button -->
+        <div class="head-user">
+            <i class="fas fa-user"></i>
+            <span th:text="${session.userLogin.getUsername()}"></span>
+            <button class="button"><a th:href="@{/logout}">Abmelden</a></button>
+        </div>
+    </div>
+</header>
+
+<!-- Start Main -->
+<main>
+    <section class="main-page">
+        <div class="container2">
+            <div class="nav-bar">
+                <!-- Navigationsleiste -->
+                <nav>
+                    <ul>  <!-- Fragezeichen mit Tooltipps -->
+                        <h3 id="ownerQuestionmark1">Navigation
+                            <button class="addMore" data-title="- Über die Budget-ID kann nach einem speziellen Budget gesucht werden.
+                            - Nach 0 suchen zeigt alle Budgets an, bei denen Sie als Owner hinterlegt sind.
+                            - Über den Kosten-Button wird direkt das Kostenmenü geöffnet.
+                            - Über den Forecast-Button wird direkt das Forecastmenü geöffnet.">?
+                            </button>
+                            <!-- Button bei Navileiste (hier kann auch der Text bei data-title geändert werden)-->
+                        </h3>
+                        <!-- Unterseiten zum Navigieren -->
+                        <li id="ausgewaehlt"><a th:href="@{/Budget_Uebersicht_Reset}">Budget-Übersicht</a></li>
+                        <li><a th:href="@{/KostenUebersicht_Owner_Reset}">Kosten-Übersicht</a></li>
+                        <li><a th:href="@{/Forecast_Uebersicht_Owner_Reset}">Forecast</a></li>
+                    </ul>
+                </nav>
+                <!-- Ansicht 1 Owner: Budget Übersicht (inkl. Soll-Ist-Vergleich) -->
+                <div class="main-fill2">
+                <div class="main-fill">
+                    <div class="containerfixy"><!-- Überschrift rechts -->
+                        <h2>Budget-Übersicht</h2>
+                    </div>
+                    <!-- Filteroption für die Tabelle nach Budget-ID -->
+                    <div class="suchen">
+                        <form class="budgetu" action="#" th:action="@{/filterBudget_Uebersicht_Owner}"
+                              th:object="${budgetid}" method="POST">
+                            <label for="suche">Budget-ID eingeben</label>
+                            <input id="suche" type="text" th:field="*{budgetId}" placeholder="BudgetID">
+                            <button class="button" type="submit">Aktualisieren</button>
+                        </form>
+                        <!-- Fehlermeldungen für den Benutzer basierend auf logischen Restriktionen -->
+                        <p th:if="${session.err.isBudgetIdErr()}" class="fehler">Fehler bei der Eingabe</p>
+                        <p th:if="${session.err.isNoBudgetFoundErr()}" class="fehler">Kein Budget gefunden</p>
+                    </div>
+
+                    <h3></h3> <!-- Platzhalter nach unten hin -->
+
+                    <div class="tabellesollist">  <!-- Tabelle der Budgets-->
+                        <table class="table table-bordered">
+
+                            <thead>
+                            <tr>
+                                <th scope="col">Budget-ID</th>
+                                <th scope="col">Beschreibung</th>
+                                <th scope="col">Geplantes Budget</th>
+                                <th scope="col">Ausgegebenes Budget</th>
+                                <th scope="col">Verbleibendes Budget</th>
+                                <th scope="col">Archivierungsstatus</th>
+                                <th scope="col">Ablaufdatum</th>
+                                <th scope="col">Kosten</th>
+                                <th scope="col">Forecast</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="budget : ${listBudget}">
+                                <td th:text="${budget.getBudgetId()}"></td>
+                                <td th:text="${budget.getBudgetDescription()}"></td>
+                                <td th:text="${budget.getPlannedAmount()+' €'}"></td>
+                                <td th:text="${budget.returnCosts(budget.getBudgetId())+' €'}"></td>
+                                <td th:text="${budget.returnFreeAmount(budget.getBudgetId())+' €'}"></td>
+                                <td th:block th:switch="${budget.isArchivated()}">
+                                    <span th:case="false" th:text="${'Nicht archiviert'}"></span>
+                                    <span th:case="true" th:text="${'Archiviert'}"></span>
+                                    </th:block>
+                                </td>
+                                <td th:text="${budget.getExpirationDate()}"></td>
+                                <!-- Weiterleitung des Benutzers zu einer anderen Ansicht über Buttons -->
+                                <td>
+                                    <button class="button"><a th:href="@{/KostenUebersicht_Owner_Reset}">Kosten</a>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="button"><a th:href="@{/Forecast_Uebersicht_Owner_Reset}">Forecast</a>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- End Main -->
+</body>
+</html>
+   

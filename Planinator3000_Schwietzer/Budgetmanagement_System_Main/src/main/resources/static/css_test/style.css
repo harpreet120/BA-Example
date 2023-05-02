@@ -1,0 +1,603 @@
+html {
+    overflow-x: hidden;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 19px;
+    line-height: 2em;
+    overflow-x: hidden;
+
+}
+
+
+/*Anfang Header*/
+.header {
+    margin-bottom: 0px;
+
+}
+
+.header i {
+    color: black;
+    font-size: 200%;
+}
+
+.container3 {
+    position: fixed;
+    z-index: 99999;
+    background-color: white;
+    width: 100%;
+    height: 126px;
+
+}
+
+.head-logo {
+    font-family: sans-serif;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+}
+
+.head-name {
+    float: right;
+    margin-left: 20px;
+    margin-top: 32px;
+    color: black;
+    font-weight: 700;
+    font-size: 24px;
+    color: #424242;
+}
+
+.head-user {
+    float: right;
+    margin-top: 40px;
+    margin-right: 10px;
+}
+
+.head-user p {
+    font-size: 15px;
+    word-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: -5px;
+}
+
+.head-user button {
+    background-color: #1C86EE;
+    border: none;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 6px 6px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.head-user button:hover {
+    opacity: 1
+}
+
+/*Ende Header*/
+
+/*Start der gesamten Page*/
+
+section.main-page {
+    /* background-color: grey; */
+    min-height: 500px;
+    text-align: center;
+    padding-top: 125px;
+}
+
+
+section.main-page #ausgewaehlt { /*Das man sieht was in der Liste ausgewählt ist*/
+    border-bottom: 3px solid #1C86EE;
+    background-color: gainsboro;
+
+}
+
+
+ul { /*Die Liste*/
+    list-style-type: none;
+    margin: 0;
+    margin-left: 40px;
+    padding: 0px;
+    width: 20%;
+    background-color: #BEBEBE;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    border-radius: 20px 0px;
+}
+
+ul li {
+    margin-left: 40px;
+    text-align: left;
+}
+
+div.nav-bar ul h3 { /*Oberer Part der Liste mit Button*/
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    margin-left: +40px;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+
+.tabellebunt {
+    background-color: #73B0E9;
+}
+
+/*Ende der Liste*/
+
+/* Der Button in der Liste Navigation mit Hovereffekt*/
+.addMore {
+    border: none;
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+    color: white;
+    font-size: 100%;
+    width: 40px;
+    height: 40px;
+    background-color: #1C86EE; /*Deine Wunschfarbe des Buttons*/
+    border-radius: 50%;
+    float: right;
+    margin-right: 20px;
+
+}
+
+.addMore:hover {
+    border: 1px solid #888;
+    background-color: #1C86EE;
+}
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+    margin-left: -330px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+[data-title]:after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: -1.6em;
+    left: 100%;
+    padding: 4px 4px 4px 8px;
+    color: #222;
+    white-space: nowrap;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;
+    -webkit-box-shadow: 0px 0px 4px #222;
+    box-shadow: 0px 0px 4px #222;
+    background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8f8f8), color-stop(1, #cccccc));
+    background-image: -webkit-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -moz-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -ms-linear-gradient(top, #f8f8f8, #cccccc);
+    background-image: -o-linear-gradient(top, #f8f8f8, #cccccc);
+    opacity: 0;
+    z-index: 99999;
+    visibility: hidden;
+    white-space: pre-line;
+}
+
+[data-title] {
+    position: relative;
+}
+
+/* Ende des Buttons in der Liste Navigation mit Hovereffekt*/
+
+/*Überschrift rechts fixed*/
+.containerfixy {
+    position: fixed;
+    z-index: 99999;
+    background-color: #f1f1f1;
+    width: 100%;
+    height: 80px;
+}
+
+/*Für den Input der Mainpage (also rechts)*/
+.main-fill {
+    margin-left: 21.6%;
+    padding: 1px 16px;
+    background-color: #f1f1f1;
+    text-align: left;
+}
+.main-fill2 {
+    background-color: #f1f1f1;
+    height: 100vh;
+}
+
+.main-fill h2 {
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    position: fixed;
+    padding-top: 40px;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+.main-fill h3 {
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.main-fill p {
+    margin-left: 10px;
+}
+
+.tabellesollist { /*Tabelle*/
+    padding: 10px 80px;
+}
+
+/*Tabelle bei Forecast*/
+.ausgabe {
+    padding: 100px 80px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.ausgabe th {
+    text-align: center;
+    color: white;
+}
+
+.ausgabe td {
+    text-align: center;
+}
+
+/*Ende Tabelle bei Forecast*/
+
+.budgetanpassenbox { /* Tabelle Input bei Management Sicht wenn man neuen wert anpassen will*/
+    margin-top: 5px;
+    width: 115px;
+}
+
+/* Start Accordion */
+.accordion {
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/*Notwendige Anpassungen des Bootstrap-Layouts*/
+section.main-page div.accordion div.accordion-item {
+    margin-top: 15px;
+
+}
+
+section.main-page div.accordion div.accordion-item h3 {
+    margin: 0px;
+
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body {
+    display: flow-root;
+    height: 100px;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body2 {
+    display: flow-root;
+    height: 200px;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body2 button {
+    padding: 2px;
+    float: right;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body button {
+    padding: 2px;
+    float: right;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body div.neueWerteEingeben {
+    padding: 2px;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body div.neueWerteEingebenadmin {
+    padding: 2px;
+    color: black;
+    font-size: 18px;
+    margin-top: -100px;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body2 div.neueWerteEingeben {
+    padding: 2px;
+}
+
+section.main-page div.accordion div.accordion-item div.accordion-body2 div.neueWerteEingebenadmin {
+    padding: 2px;
+    color: black;
+    font-size: 18px;
+    margin-top: -100px;
+}
+
+.speziallabel {
+    color: black;
+}
+
+.flowleft {
+    float: left;
+}
+
+.flowright {
+    float: right;
+}
+
+.minipadding {
+    padding: 0 10px;
+}
+
+/* Background Color für Button bei Accordion*/
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+/* Aussehen der Accordionbuttons*/
+
+.accordion-body button {
+    background-color: #1C86EE;
+    border: none;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 6px 6px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.accordion-body2 button {
+    background-color: #1C86EE;
+    border: none;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 6px 6px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Buttons unter Eingabefeldern aussehen*/
+
+.buttonssindtoll button { /* Buttons für Eingaben bei Management*/
+    background-color: #1C86EE;
+    border: none;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 6px 6px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttonssindtoll { /* Buttons für Eingaben bei Management*/
+    margin-left: 600px;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.useranlegenb button { /* Buttons für Eingaben bei Admin*/
+    background-color: #1C86EE;
+    border: none;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 6px 6px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.useranlegenb { /* Buttons für Eingaben bei Admin*/
+    margin-left: 750px;
+    margin-top: 20px;
+}
+
+.button { /* Buttons aussehen insgesamt*/
+
+    background-color: #1C86EE;
+    border: none;
+    color: white;
+    padding: 2px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 6px 6px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+
+/* Suchfelder Oben bei den Seiten*/
+#suche {
+
+    width: 10em;
+    border: 2px solid #999;
+    border-radius: 0.5em;
+    font-size: 1.2em;
+    transition: width 0.5s ease-in-out;
+}
+
+#suche:focus {
+    font-size: 1.5em;
+    width: 50%;
+}
+
+.suchen {
+    margin-left: 120px;
+    margin-top: 100px;
+}
+
+/* Ende Suchfelder Oben bei den Seiten*/
+
+/* Eingabefelder bei Management sicht*/
+.budgetu {
+    /*margin-left: 80px;*/
+    margin-top: 100px;
+}
+
+.budgetu3 {
+    /*margin-left: 80px;*/
+    margin-top: 40px;
+}
+
+/* Eingabefelder bei Admin sicht*/
+.adminu {
+    margin-left: 80px;
+    margin-top: 100px;
+}
+
+/* Eingabefelder Abstand bei Admin sicht*/
+.adminu label {
+    float: left;
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+.adminu input {
+    float: right;
+}
+
+.adminu button {
+    float: right;
+}
+
+/* Eingabefelder Abstand bei Management sicht*/
+
+.budgetu2 button {
+    float: right;
+
+}
+
+.buttonAlign {
+    margin-right: 162px;
+}
+
+/* Beginn ? Tipps und Infos*/
+#adminQuestionmark1 [data-title]:after {
+    bottom: -12.0em;
+}
+
+#adminQuestionmark2 [data-title]:after {
+    bottom: -9.5em;
+}
+
+#managementQuestionmark1 [data-title]:after {
+    bottom: -7.2em;
+}
+
+#managementQuestionmark2 [data-title]:after {
+    bottom: -12.0em;
+}
+
+#managementQuestionmark3 [data-title]:after {
+    bottom: -16.3em;
+}
+
+#managementQuestionmark4 [data-title]:after {
+    bottom: -4.4em;
+}
+
+#ownerQuestionmark1 [data-title]:after {
+    bottom: -12.0em;
+}
+
+#ownerQuestionmark2 [data-title]:after {
+    bottom: -13.0em;
+}
+
+#ownerQuestionmark3 [data-title]:after {
+    bottom: -14.0em;
+}
+
+
+p.fehler {
+    color: red;
+    border: 3px solid;
+    padding-left: 8px;
+    width: 391px;
+    border-radius: 5px;
+}
+
+/* Ende ? Tipps und Infos*/
+
+/* Damit die Seiten auf dem Halben Screen schön aussehen (nur Halber screen gemacht Handy ansicht fehlt)*/
+@media screen and (max-width: 1399px) {
+    div.nav-bar ul h3 {
+        font-size: 20px;
+    }
+
+    ul li a {
+        margin-left: 40px;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    ul li {
+        margin-left: 10px;
+        text-align: left;
+    }
+
+    section.main-page div.accordion div.accordion-item div.accordion-body {
+        height: 150px;
+    }
+
+}
+
